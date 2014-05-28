@@ -208,7 +208,7 @@ sub gather_files {
     my $content = $self->_changes->serialize;
 
     # TODO don't bother prompting when only testing
-    if ($self->edit_changelog) {
+    if ($self->edit_changelog && 0) { # disabled for testing
         if (try_load_class('Proc::InvokeEditor')) {
             my $edited_content = Proc::InvokeEditor->edit($content);
             my $new_changes    = CPAN::Changes->load_string($edited_content);
